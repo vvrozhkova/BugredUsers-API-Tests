@@ -1,6 +1,5 @@
 package io.vvrozhkova.bugredusers_api.helpers.youtrack;
 
-import io.vvrozhkova.bugredusers_api.helpers.youtrack.YoutrackExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.lang.annotation.ElementType;

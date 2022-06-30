@@ -3,7 +3,6 @@ package io.vvrozhkova.bugredusers_api.api.users;
 import io.qameta.allure.Step;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import io.vvrozhkova.bugredusers_api.api.BaseApi;
 import io.vvrozhkova.bugredusers_api.api.endpoint.UserEndPoint;
 

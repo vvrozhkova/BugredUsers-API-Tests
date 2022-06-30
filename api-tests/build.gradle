@@ -1,0 +1,12 @@
+plugins {
+    id "io.freefair.lombok" version "6.4.2"
+}
+
+dependencies {
+    testImplementation(
+            deps.restAssured,
+            deps.allureRestAssured,
+            deps.lombok,
+            deps.jacksonDatabind
+    )
+}

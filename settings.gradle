@@ -1,2 +1,4 @@
-rootProject.name = 'BugredUsers-API'
+rootProject.name = 'BugredUsers'
+include 'api-tests'
+include 'ui-tests'
 

@@ -1,0 +1,16 @@
+ext.allureVersion = "2.18.1"
+ext.junitVersion = "5.8.2"
+
+def deps = [:]
+deps.restAssured = "io.rest-assured:rest-assured:5.1.1"
+deps.allureRestAssured = "io.qameta.allure:allure-rest-assured:$allureVersion"
+deps.lombok = "org.projectlombok:lombok:1.18.24"
+deps.jacksonDatabind = "com.fasterxml.jackson.core:jackson-databind:2.13.3"
+
+deps.junitJupiter = "org.junit.jupiter:junit-jupiter:$junitVersion"
+deps.owner = "org.aeonbits.owner:owner:1.0.12"
+deps.aspectjweaver = "org.aspectj:aspectjweaver:1.9.9.1"
+deps.allureAssertj = "io.qameta.allure:allure-assertj:$allureVersion"
+deps.assertjCore = "org.assertj:assertj-core:3.23.1"
+deps.javafaker = "com.github.javafaker:javafaker:1.0.2"
+ext.deps = deps
