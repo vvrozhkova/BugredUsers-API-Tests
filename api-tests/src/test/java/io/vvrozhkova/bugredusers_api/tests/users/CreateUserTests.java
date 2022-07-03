@@ -1,29 +1,62 @@
 package io.vvrozhkova.bugredusers_api.tests.users;
 
-import io.vvrozhkova.bugredusers_api.api.users.CreateUserApi;
-import io.vvrozhkova.bugredusers_api.api.users.CreateUserRequestDto;
-import io.vvrozhkova.bugredusers_api.api.users.CreateUserResponseDto;
+import io.restassured.response.ExtractableResponse;
+import io.restassured.response.Response;
 import io.vvrozhkova.bugredusers_api.tests.BaseTest;
+import io.vvrozhkova.bugredusers_common.api.users.*;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CreateUserTests extends BaseTest {
 
-    private final CreateUserRequestDto user = CreateUserRequestDto.builder()
-            .name(faker.name().username())
-            .email(faker.internet().emailAddress())
-            .password(faker.internet().password())
-            //.companies(new int[]{73})
-            //.tasks(new int[]{121})
-            .build();
-
     @Test
-    void createUserTest(){
-        CreateUserApi userApi = new CreateUserApi();
+    void createUserTest() {
+        CreateUserRequestDto user = prepareUserRq();
         CreateUserResponseDto userInfo = userApi.createUser(user);
         assertThat(userInfo).usingRecursiveComparison()
                 .ignoringExpectedNullFields()
                 .isEqualTo(user);
+
+        userApi.deleteUser(user.getName(), user.getEmail());
     }
+
+//    @Test
+//    void createUserWithTasksTest() {
+//        CreateUserWithTasksRequestDto user = userApi.prepareUserWithTasksRq();
+//        CreateUserWithTasksResponseDto userInfo = userApi.createUserWithTasks(user);
+//        assertThat(userInfo).usingRecursiveComparison()
+//                .ignoringExpectedNullFields()
+//                .isEqualTo(user);
+//
+//        userApi.deleteUser(user.getName(), user.getEmail());
+//    }
+
+    @Test
+    void deleteUserTest() {
+        CreateUserWithTasksResponseDto userWithTasks = createUserWithTasks();
+        DeleteUserRequestDto userToDelete = DeleteUserRequestDto.builder()
+                .name(userWithTasks.getName())
+                .email(userWithTasks.getEmail())
+                .build();
+
+        ExtractableResponse<Response> deleteUserResponse = userApi.deleteUser(userToDelete);
+        DeleteUserResponseDto userInfo = userApi.checkDeleteUserResponse(deleteUserResponse);
+        assertThat(userInfo).usingRecursiveComparison()
+                .ignoringExpectedNullFields()
+                .isEqualTo(userToDelete);
+    }
+
+    @Test
+    void getUserInfoTest(){
+        UserInfoRequestDto user = UserInfoRequestDto.builder()
+                .name("lavina.connelly")
+                .email("kenneth.rowe@hotmail.com")
+                .build();
+        UserInfoResponseDto userFullInfo = userApi.getUserFullInfo(user);
+        assertThat(userFullInfo).usingRecursiveComparison()
+                .ignoringExpectedNullFields()
+                .isEqualTo(user);
+    }
+
 }

@@ -1,12 +1,12 @@
 package io.vvrozhkova.bugredusers_api.tests.tasks;
 
-import io.vvrozhkova.bugredusers_api.api.tasks.*;
-import io.vvrozhkova.bugredusers_api.config.App;
-import io.vvrozhkova.bugredusers_api.helpers.youtrack.TestCaseId;
+import io.vvrozhkova.bugredusers_common.helpers.youtrack.TestCaseId;
 import io.vvrozhkova.bugredusers_api.tests.BaseTest;
+import io.vvrozhkova.bugredusers_common.api.tasks.*;
+import io.vvrozhkova.bugredusers_common.config.App;
 import org.junit.jupiter.api.Test;
 
-import static io.vvrozhkova.bugredusers_api.helpers.Assertions.checkValueIsEqualTo;
+import static io.vvrozhkova.bugredusers_common.helpers.Assertions.checkValueIsEqualTo;
 
 public class TaskTests extends BaseTest {
 
@@ -19,8 +19,6 @@ public class TaskTests extends BaseTest {
             .owner(ownerEmail)
             .email(userEmail)
             .build();
-
-    TasksApi tasksApi = new TasksApi();
 
     @Test
     @TestCaseId("BU-9")

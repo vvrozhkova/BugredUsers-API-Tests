@@ -1,11 +1,11 @@
 package io.vvrozhkova.bugredusers_api.tests.companies;
 
-import io.vvrozhkova.bugredusers_api.api.companies.*;
-import io.vvrozhkova.bugredusers_api.config.App;
 import io.vvrozhkova.bugredusers_api.tests.BaseTest;
+import io.vvrozhkova.bugredusers_common.api.companies.*;
+import io.vvrozhkova.bugredusers_common.config.App;
 import org.junit.jupiter.api.Test;
 
-import static io.vvrozhkova.bugredusers_api.helpers.Assertions.checkValueIsEqualTo;
+import static io.vvrozhkova.bugredusers_common.helpers.Assertions.checkValueIsEqualTo;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class CompanyTests extends BaseTest {
@@ -17,10 +17,8 @@ public class CompanyTests extends BaseTest {
             .emails(new String[]{App.config.userEmail()})
             .build();
 
-    CompaniesApi companiesApi = new CompaniesApi();
-
     @Test
-    void createCompany() {
+    void createCompanyTest() {
         CreateCompanyResponseDto companyInfo = companiesApi.createCompany(company);
         assertAll(
                 () -> checkValueIsEqualTo("name",

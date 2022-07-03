@@ -1,13 +1,13 @@
 package io.vvrozhkova.bugredusers_api.tests.authorization;
 
-import io.vvrozhkova.bugredusers_api.api.registration.RegisterUserRequestDto;
-import io.vvrozhkova.bugredusers_api.api.registration.RegisterUserResponseDto;
-import io.vvrozhkova.bugredusers_api.api.registration.RegistrationApi;
-import io.vvrozhkova.bugredusers_api.config.App;
+import io.vvrozhkova.bugredusers_common.api.registration.RegisterUserRequestDto;
+import io.vvrozhkova.bugredusers_common.api.registration.RegisterUserResponseDto;
+import io.vvrozhkova.bugredusers_common.api.registration.RegistrationApi;
 import io.vvrozhkova.bugredusers_api.tests.BaseTest;
+import io.vvrozhkova.bugredusers_common.config.App;
 import org.junit.jupiter.api.Test;
 
-import static io.vvrozhkova.bugredusers_api.helpers.Assertions.checkValueIsEqualTo;
+import static io.vvrozhkova.bugredusers_common.helpers.Assertions.checkValueIsEqualTo;
 
 public class RegistrationTests extends BaseTest {
 
@@ -19,7 +19,7 @@ public class RegistrationTests extends BaseTest {
 //            .build();
     RegisterUserRequestDto regUser = RegisterUserRequestDto.builder()
             .email(App.config.userEmail())
-            .name(App.config.userEmail())
+            .name(App.config.userName())
             .password(App.config.userPassword())
             .build();
 

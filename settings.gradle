@@ -1,4 +1,5 @@
 rootProject.name = 'BugredUsers'
 include 'api-tests'
 include 'ui-tests'
+include 'common'
 

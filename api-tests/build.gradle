@@ -4,9 +4,9 @@ plugins {
 
 dependencies {
     testImplementation(
-            deps.restAssured,
             deps.allureRestAssured,
             deps.lombok,
-            deps.jacksonDatabind
+            deps.jacksonDatabind,
+            project(":common")
     )
 }

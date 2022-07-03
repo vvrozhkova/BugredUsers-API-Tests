@@ -1,5 +1,6 @@
 ext.allureVersion = "2.18.1"
 ext.junitVersion = "5.8.2"
+ext.selenideVersion = "6.3.5"
 
 def deps = [:]
 deps.restAssured = "io.rest-assured:rest-assured:5.1.1"
@@ -13,4 +14,6 @@ deps.aspectjweaver = "org.aspectj:aspectjweaver:1.9.9.1"
 deps.allureAssertj = "io.qameta.allure:allure-assertj:$allureVersion"
 deps.assertjCore = "org.assertj:assertj-core:3.23.1"
 deps.javafaker = "com.github.javafaker:javafaker:1.0.2"
+
+deps.selenide = "com.codeborne:selenide:$selenideVersion"
 ext.deps = deps
